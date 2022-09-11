@@ -1,15 +1,13 @@
 <template>
-  <el-container>
+  <el-container style="width:100%; height: 100%;">
     <el-header> 
       <layout-bar title="Project Sims">
       </layout-bar>
     </el-header>
-    <el-main>
-      <el-space :fill="true" style="width: 100%; height:100%">
-        <el-card>
-          <router-view/>
-        </el-card>
-      </el-space>
+    <el-main class="main">
+      <div id="main-panel">
+        <router-view/>
+      </div>
     </el-main>
   </el-container>
 </template>
@@ -33,5 +31,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height:100%;
+}
+body {
+  width:100vw;
+  height: 100vh;
+  margin:0;
+}
+#main-panel {
+  height:100%; 
+  background: rgb(243,242,243)
 }
 </style>

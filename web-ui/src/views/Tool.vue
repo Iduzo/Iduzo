@@ -1,12 +1,12 @@
 <template>
   <div>
-    Tutorial
+    Tool
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TutorialView',
+  name: 'ToollView',
   components: {
   }
 }
