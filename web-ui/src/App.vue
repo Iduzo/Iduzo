@@ -1,10 +1,30 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <el-container>
+    <el-header> 
+      <layout-bar title="Project Sims">
+      </layout-bar>
+    </el-header>
+    <el-main>
+      <el-space :fill="true" style="width: 100%; height:100%">
+        <el-card>
+          <router-view/>
+        </el-card>
+      </el-space>
+    </el-main>
+  </el-container>
 </template>
+
+<script>
+// @ is an alias to /src
+import LayoutBar from '@/components/Layout.vue'
+
+export default {
+  name: 'App',
+  components: {
+    LayoutBar
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -13,18 +33,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
