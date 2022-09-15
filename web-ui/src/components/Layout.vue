@@ -4,14 +4,14 @@
 			{{title}}
 		</template>
 		<template #extra>
-			<el-button @click="home" type="info" :icon="House" circle />
+			<el-button @click="user" type="info" :icon="User" circle />
 		</template>
 	</el-page-header>
 </template>
 
 <script setup>
 import {
-	House
+	User
 } from '@element-plus/icons-vue'
 import { useRouter} from 'vue-router'
 
@@ -19,8 +19,8 @@ const router = useRouter()
 function onBack(){
 	router.back()
 }
-function home() {
-	router.push({ name: "home" })
+function user() {
+	router.push({ name: "login" })
 }
 </script>
 <script>
