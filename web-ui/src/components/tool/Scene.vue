@@ -4,10 +4,13 @@
 </template>
 
 <script>
-import * as THREE from "three";
+// import * as THREE from "three";
+// Import three.js IFCLoader
+// import { IFCLoader } from "three/examples/jsm/loaders/IFCLoader";
 // import { IFCLoader } from "web-ifc-three/IFCLoader";
-import { IfcViewerAPI } from "web-ifc-viewer";
+// import { IfcViewerAPI } from "web-ifc-viewer";
 //import { acceleratedRaycast, computeBoundsTree, disposeBoundsTree } from "three-mesh-bvh";
+import {Scene} from "../../threejs"
 
 export default {
   name: 'ToolScene',
@@ -23,10 +26,11 @@ export default {
       // this.renderer.render(this.scene, this.camera);
     },
     async loadIFC() {
-      this.ifcModels = [];
+      // const ifcLoader = new IFCLoader();
+      // this.ifcModels = [];
       // this.ifcLoader = new IFCLoader();
-      this.viewer.IFC.setWasmPath("../IFCLoader");
-      this.viewer.IFC.loadIfcUrl("../IFCLoader/house.ifc")
+      // this.viewer.IFC.setWasmPath("../IFCLoader");
+      // this.viewer.IFC.loadIfcUrl("../../threejs/models/house.ifc")
       //   , (ifcModel) => {
       //   this.ifcModels.push(ifcModel);
       // });
@@ -55,19 +59,21 @@ export default {
     // },
     init() {
       const container = this.$refs[this.containerId]
-      this.viewer = new IfcViewerAPI({
-        container,
-        backgroundColor: new THREE.Color(0xffffff),
-      });
-      this.viewer.axes.setAxes();
-      this.viewer.grid.setGrid();
-      window.onkeydown = (event) => {
-        if (event.code === "KeyP") {
-          this.viewer.clipper.createPlane();
-        } else if (event.code === "KeyO") {
-          this.viewer.clipper.deletePlane();
-        }
-      };
+
+      new Scene(container)
+      // this.viewer = new IfcViewerAPI({
+      //   container,
+      //   backgroundColor: new THREE.Color(0xffffff),
+      // });
+      // this.viewer.axes.setAxes();
+      // this.viewer.grid.setGrid();
+      // window.onkeydown = (event) => {
+      //   if (event.code === "KeyP") {
+      //     this.viewer.clipper.createPlane();
+      //   } else if (event.code === "KeyO") {
+      //     this.viewer.clipper.deletePlane();
+      //   }
+      // };
 
       // this.renderer = new THREE.WebGLRenderer();
       // this.renderer.setSize(container.clientWidth, container.clientHeight);
